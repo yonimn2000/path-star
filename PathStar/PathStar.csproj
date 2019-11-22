@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>YonatanMankovich.PathStar</AssemblyName>
+    <RootNamespace>YonatanMankovich.PathStar</RootNamespace>
+    <Copyright>© 2019 Yonatan Mankovich</Copyright>
+    <Authors>Yonatan Mankovich</Authors>
+  </PropertyGroup>
+
+</Project>
