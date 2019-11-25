@@ -11,10 +11,10 @@ namespace YonatanMankovich.PathStar
         public Point EndPoint { get; }
         public bool IsDone { get; private set; }
         public List<Point> Path { get; private set; } = new List<Point>();
-
-        private GridPoint[,] Grid { get; set; }
         public List<GridPoint> OpenSet { get; private set; } = new List<GridPoint>();
         public List<GridPoint> ClosedSet { get; private set; } = new List<GridPoint>();
+
+        private GridPoint[,] Grid { get; set; }
 
         public GridAstar(Size gridSize, Point startPoint, Point endPoint, List<Point> wallPoints)
         {
@@ -44,7 +44,8 @@ namespace YonatanMankovich.PathStar
             while (HasNextStep())
                 MakeStep();
             IsDone = true;
-            //if (OpenSet.Count == 0) return "No solution"
+            if (OpenSet.Count == 0)
+                throw new Exception("No solution");
         }
 
         public bool HasNextStep()
@@ -68,24 +69,15 @@ namespace YonatanMankovich.PathStar
                 if (!ClosedSet.Contains(neighbor) && !neighbor.IsWall)
                 {
                     int tempCost = currentPoint.CostFromStart + Manhattan(neighbor, currentPoint);
-                    bool newPath = false;
-                    if (OpenSet.Contains(neighbor))
-                    {
-                        if (tempCost < neighbor.CostFromStart)
-                        {
-                            neighbor.CostFromStart = tempCost;
-                            newPath = true;
-                        }
-                    }
-                    else
+                    if (OpenSet.Contains(neighbor) && tempCost < neighbor.CostFromStart)
+                        OpenSet.Remove(neighbor);
+                    if (ClosedSet.Contains(neighbor) && tempCost < neighbor.CostFromStart)
+                        ClosedSet.Remove(neighbor);
+                    if (!OpenSet.Contains(neighbor) && !ClosedSet.Contains(neighbor))
                     {
                         neighbor.CostFromStart = tempCost;
-                        newPath = true;
                         OpenSet.Add(neighbor);
-                    }
-                    if (newPath)
-                    {
-                        neighbor.CostFromStart = Manhattan(neighbor, new GridPoint(EndPoint));
+                        neighbor.Heuristic = Manhattan(neighbor, new GridPoint(EndPoint));
                         neighbor.Previous = currentPoint;
                     }
                 }
@@ -130,6 +122,8 @@ namespace YonatanMankovich.PathStar
         public GridPoint Previous { get; set; } = null;
         public List<GridPoint> Neighbors { get; set; } = new List<GridPoint>(0);
 
+        const byte WEIGHT = 2;
+
         public GridPoint(int x, int y)
         {
             X = x;
@@ -140,7 +134,7 @@ namespace YonatanMankovich.PathStar
 
         public int GetF()
         {
-            return CostFromStart + Heuristic;
+            return CostFromStart + WEIGHT * Heuristic;
         }
 
         public void AddNeighbors(GridPoint[,] grid)

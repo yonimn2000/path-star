@@ -11,23 +11,26 @@ namespace YonatanMankovich.PathStarTest
         static GridAstar gridAstar;
         static void Main(string[] args)
         {
-            Size gridSize = new Size(10, 10);
+            Size gridSize = new Size(45, 25);
             Point startPoint = new Point(0, 0);
-            Point endPoint = new Point(9, 9);
+            Point endPoint = new Point(gridSize.Width - 1, gridSize.Height - 1);
             List<Point> wallPoints = new List<Point>();
+            Random random = new Random();
 
-            for (int i = 0; i < 5; i++)
-            {
-                wallPoints.Add(new Point(i + 5, 4));
-                wallPoints.Add(new Point(i, 2));
-                wallPoints.Add(new Point(i + 3, 6));
-            }
+            for (int i = 0; i < gridSize.Width * gridSize.Height * 0.25; i++)
+                wallPoints.Add(new Point(random.Next(gridSize.Width), random.Next(gridSize.Height)));
 
             gridAstar = new GridAstar(gridSize, startPoint, endPoint, wallPoints);
 
             while (gridAstar.HasNextStep())
             {
                 gridAstar.MakeStep();
+                if (gridAstar.OpenSet.Count == 0)
+                {
+                    Console.SetCursorPosition(0, gridSize.Height);
+                    Console.Write("No path...");
+                    break;
+                }
                 Console.CursorVisible = false;
 
                 foreach (Point wallPoint in wallPoints)
@@ -42,7 +45,7 @@ namespace YonatanMankovich.PathStarTest
                 foreach (Point pathPoint in gridAstar.Path)
                     DrawPointInColor(pathPoint, ConsoleColor.Yellow);
 
-                Thread.Sleep(250);
+                Thread.Sleep(100);
             }
             Console.ReadLine();
         }
