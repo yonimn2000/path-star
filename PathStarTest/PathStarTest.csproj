@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BiGridAstarTest.cs" />
     <Compile Include="GridAstarTest.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Program.cs" />

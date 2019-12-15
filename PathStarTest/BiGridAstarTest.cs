@@ -6,35 +6,34 @@ using YonatanMankovich.PathStar;
 
 namespace YonatanMankovich.PathStarTest
 {
-    static class GridAstarTest
+    static class BiGridAstarTest
     {
-        public static void Test(GridAstar gridAstar, List<Point> wallPoints)
+        public static void Test(BiGridAstar biGridAstar, List<Point> wallPoints)
         {
-            while (gridAstar.HasNextStep())
+            while (biGridAstar.HasNextStep())
             {
                 try
                 {
-                    gridAstar.MakeStep();
+                    biGridAstar.MakeStep();
                 }
                 catch (Exception e)
                 {
-                    Console.SetCursorPosition(0, gridAstar.GridSize.Height);
+                    Console.SetCursorPosition(0, biGridAstar.GetGridSize().Height);
                     Console.Write(e.Message);
                     break;
                 }
-
                 Console.CursorVisible = false;
 
                 foreach (Point wallPoint in wallPoints)
                     Helper.DrawPointInColor(wallPoint, ConsoleColor.Gray);
 
-                foreach (GridPoint closedSetPoint in gridAstar.ClosedSet)
+                foreach (GridPoint closedSetPoint in biGridAstar.GetClosedSet())
                     Helper.DrawPointInColor(closedSetPoint.GetAsPoint(), ConsoleColor.Cyan);
 
-                foreach (GridPoint openSetPoint in gridAstar.OpenSet)
+                foreach (GridPoint openSetPoint in biGridAstar.GetOpenSet())
                     Helper.DrawPointInColor(openSetPoint.GetAsPoint(), ConsoleColor.Green);
 
-                foreach (Point pathPoint in gridAstar.Path)
+                foreach (Point pathPoint in biGridAstar.GetPath())
                     Helper.DrawPointInColor(pathPoint, ConsoleColor.Yellow);
 
                 Thread.Sleep(100);

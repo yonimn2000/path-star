@@ -108,6 +108,8 @@ namespace YonatanMankovich.PathStar
             for (int i = 0; i < OpenSet.Count; i++)
                 if (OpenSet[i].GetF() < OpenSet[indexOfMinVal].GetF())
                     indexOfMinVal = i;
+            if (OpenSet.Count == 0)
+                throw new PathNotFoundException();
             return OpenSet[indexOfMinVal];
         }
     }

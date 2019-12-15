@@ -7,7 +7,6 @@ namespace YonatanMankovich.PathStarTest
 {
     class Program
     {
-        static GridAstar gridAstar;
         static void Main(string[] args)
         {
             Console.Title = "Grid A* Path Tester";
@@ -19,9 +18,11 @@ namespace YonatanMankovich.PathStarTest
 
             for (int i = 0; i < gridSize.Width * gridSize.Height * 0.4; i++)
                 wallPoints.Add(new Point(random.Next(gridSize.Width), random.Next(gridSize.Height)));
-
-            gridAstar = new GridAstar(gridSize, startPoint, endPoint, wallPoints);
-            GridAstarTest.Test(gridAstar, wallPoints);
+            Console.Title = "Testing Grid A*";
+            GridAstarTest.Test(new GridAstar(gridSize, startPoint, endPoint, wallPoints), wallPoints);
+            Console.Clear();
+            Console.Title = "Testing Grid A* - Bidirectional";
+            BiGridAstarTest.Test(new BiGridAstar(gridSize, startPoint, endPoint, wallPoints), wallPoints);
         }
     }
 }
