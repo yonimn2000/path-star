@@ -4,15 +4,15 @@ using System.Drawing;
 
 namespace YonatanMankovich.PathStar
 {
-    public class GridAstar
+    public class GridAstar : IGridAstar
     {
         public Size GridSize { get; }
         public Point StartPoint { get; }
         public Point EndPoint { get; }
         public bool IsDone { get; private set; }
         public List<Point> Path { get; private set; } = new List<Point>();
-        public List<GridPoint> OpenSet { get; private set; } = new List<GridPoint>();
-        public List<GridPoint> ClosedSet { get; private set; } = new List<GridPoint>();
+        internal List<GridPoint> OpenSet { get; set; } = new List<GridPoint>();
+        internal List<GridPoint> ClosedSet { get; set; } = new List<GridPoint>();
 
         private GridPoint[,] Grid { get; set; }
 
@@ -95,6 +95,7 @@ namespace YonatanMankovich.PathStar
                 Path.Add(walker.Previous.GetAsPoint());
                 walker = walker.Previous;
             }
+            Path.Reverse();
         }
 
         private int Manhattan(GridPoint pointA, GridPoint pointB)
@@ -111,6 +112,16 @@ namespace YonatanMankovich.PathStar
             if (OpenSet.Count == 0)
                 throw new PathNotFoundException();
             return OpenSet[indexOfMinVal];
+        }
+
+        public List<GridPoint> GetOpenSet()
+        {
+            return new List<GridPoint>(OpenSet);
+        }
+
+        public List<GridPoint> GetClosedSet()
+        {
+            return new List<GridPoint>(ClosedSet);
         }
     }
 }
