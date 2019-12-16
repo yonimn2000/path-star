@@ -5,7 +5,7 @@ A simple library that uses the A* path finding algorithm to find paths on 2D gri
 ## How to Use
 
 ```cs
-Size gridSize = new Size(10, 10);
+Size gridSize = new Size(45, 20);
 Point startPoint = new Point(0, 0);
 Point endPoint = new Point(gridSize.Width - 1, gridSize.Height - 1);
 List<Point> wallPoints = new List<Point>();
@@ -18,3 +18,15 @@ IGridAstar gridAstar = new GridAstar(gridSize, startPoint, endPoint, wallPoints)
 gridAstar.FindPath();
 List<Point> pathPoints = gridAstar.Path;
 ```
+
+## Screenshot from the Test
+
+![Screenshot](media/Screenshot.png)
+
+Gray = walls
+
+Blue = closed set
+
+Green = open set
+
+Yellow = path
