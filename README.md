@@ -21,7 +21,7 @@ List<Point> pathPoints = gridAstar.Path;
 
 ## Screenshot from the Test
 
-![Screenshot](media/screenshot.png)
+![Screenshot](Media/screenshot.png)
 
 Gray = walls
 
