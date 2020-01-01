@@ -20,10 +20,10 @@ namespace YonatanMankovich.PathStar
         {
             GridSize = gridSize;
             if (!IsPointOnGrid(startPoint))
-                throw new PointOutsideOfGridException(startPoint, gridSize);
+                throw new PointOutsideOfGridException(startPoint, gridSize, "Start point");
             StartPoint = startPoint;
             if (!IsPointOnGrid(endPoint))
-                throw new PointOutsideOfGridException(endPoint, gridSize);
+                throw new PointOutsideOfGridException(endPoint, gridSize, "End point");
             EndPoint = endPoint;
             Grid = new GridPoint[GridSize.Height, GridSize.Width];
 
@@ -38,7 +38,7 @@ namespace YonatanMankovich.PathStar
             foreach (Point wallPoint in wallPoints)
             {
                 if (!IsPointOnGrid(wallPoint))
-                    throw new PointOutsideOfGridException(wallPoint, gridSize);
+                    throw new PointOutsideOfGridException(wallPoint, gridSize, "Wall point");
                 Grid[wallPoint.Y, wallPoint.X].IsWall = true;
             }
 
