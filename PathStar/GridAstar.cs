@@ -19,7 +19,11 @@ namespace YonatanMankovich.PathStar
         public GridAstar(Size gridSize, Point startPoint, Point endPoint, List<Point> wallPoints)
         {
             GridSize = gridSize;
+            if (!IsPointOnGrid(startPoint))
+                throw new PointOutsideOfGridException(startPoint, gridSize);
             StartPoint = startPoint;
+            if (!IsPointOnGrid(endPoint))
+                throw new PointOutsideOfGridException(endPoint, gridSize);
             EndPoint = endPoint;
             Grid = new GridPoint[GridSize.Height, GridSize.Width];
 
@@ -32,11 +36,20 @@ namespace YonatanMankovich.PathStar
                     Grid[y, x].AddNeighbors(Grid);
 
             foreach (Point wallPoint in wallPoints)
+            {
+                if (!IsPointOnGrid(wallPoint))
+                    throw new PointOutsideOfGridException(wallPoint, gridSize);
                 Grid[wallPoint.Y, wallPoint.X].IsWall = true;
+            }
 
             Grid[StartPoint.Y, StartPoint.X].IsWall = false;
             Grid[EndPoint.Y, EndPoint.X].IsWall = false;
             OpenSet.Add(Grid[StartPoint.Y, StartPoint.X]);
+        }
+
+        private bool IsPointOnGrid(Point point)
+        {
+            return point.X >= 0 && point.Y >= 0 && point.X < GridSize.Width && point.Y < GridSize.Height;
         }
 
         public void FindPath()
