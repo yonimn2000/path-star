@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B1127CD8-61DA-4603-9542-B2DCA74BACA4}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>YonatanMankovich.PathStarTest</RootNamespace>
-    <AssemblyName>YonatanMankovich.PathStarTest</AssemblyName>
+    <RootNamespace>YonatanMankovich.PathStarTestVisualizer</RootNamespace>
+    <AssemblyName>YonatanMankovich.PathStarTestVisualizer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

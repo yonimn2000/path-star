@@ -51,6 +51,7 @@ namespace YonatanMankovich.PathStar
                 path.AddRange(GridAstar1.Path);
                 path.AddRange(GridAstar2.Path);
             }
+            path.Reverse();
             return path;
         }
 

@@ -10,18 +10,18 @@ namespace YonatanMankovich.PathStarTest
         static void Main(string[] args)
         {
             Console.Title = "Grid A* Path Tester";
-            Size gridSize = new Size(45, 25);
+            Size gridSize = new Size(10, 10);
             Point startPoint = new Point(0, 0);
             Point endPoint = new Point(gridSize.Width - 1, gridSize.Height - 1);
             List<Point> wallPoints = new List<Point>();
-            Random random = new Random();
+            Random random = new Random(1);
 
             for (int i = 0; i < gridSize.Width * gridSize.Height * 0.3; i++)
                 wallPoints.Add(new Point(random.Next(gridSize.Width), random.Next(gridSize.Height)));
-            Console.Title = "Testing Grid A*";
+            /*Console.Title = "Testing Grid A*";
             Test(new GridAstar(gridSize, startPoint, endPoint, wallPoints), wallPoints);
             Console.Clear();
-            Console.Title = "Testing Grid A* - Bidirectional";
+            Console.Title = "Testing Grid A* - Bidirectional";*/
             Test(new BiGridAstar(gridSize, startPoint, endPoint, wallPoints), wallPoints);
         }
 
@@ -54,6 +54,9 @@ namespace YonatanMankovich.PathStarTest
                 foreach (Point pathPoint in gridAstar.Path)
                     DrawPointInColor(pathPoint, ConsoleColor.Yellow);
             }
+            foreach (Point pathPoint in gridAstar.Path)
+                //System.Diagnostics.Debug.Write($"new Point({pathPoint.X},{pathPoint.Y}),");
+                System.Diagnostics.Debug.WriteLine(pathPoint);
             Console.ReadLine();
         }
 
