@@ -14,12 +14,11 @@ for (int i = 0; i < gridSize.Width * gridSize.Height * 0.3; i++) // Create rando
     wallPoints.Add(new Point(random.Next(gridSize.Width), random.Next(gridSize.Height)));
 
 IGridAstar gridAstar = new GridAstar(gridSize, startPoint, endPoint, wallPoints);
-// or IGridAstar biGridAstar = new BiGridAstar(gridSize, startPoint, endPoint, wallPoints);
 gridAstar.FindPath();
 List<Point> pathPoints = gridAstar.Path;
 ```
 
-## Screenshot from the Test
+## Screenshot from the Test Visualizer
 
 ![Screenshot](Media/screenshot.png)
 
