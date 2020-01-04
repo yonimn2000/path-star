@@ -35,7 +35,7 @@ namespace YonatanMankovich.PathStar
                 for (int x = 0; x < GridSize.Width; x++)
                     Grid[y, x].AddNeighbors(Grid);
 
-            foreach (Point wallPoint in wallPoints)
+            foreach (Point wallPoint in wallPoints.ToArray())
             {
                 if (!IsPointOnGrid(wallPoint))
                     throw new PointOutsideOfGridException(wallPoint, gridSize, "Wall point");
@@ -79,12 +79,12 @@ namespace YonatanMankovich.PathStar
             ClosedSet.Add(currentPoint);
             foreach (GridPoint neighbor in currentPoint.Neighbors)
             {
-                if (!ClosedSet.Contains(neighbor) && !neighbor.IsWall)
+                if (!neighbor.IsWall && !ClosedSet.Contains(neighbor))
                 {
                     int tempCost = currentPoint.CostFromStart + Manhattan(neighbor, currentPoint);
-                    if (OpenSet.Contains(neighbor) && tempCost < neighbor.CostFromStart)
+                    if (tempCost < neighbor.CostFromStart && OpenSet.Contains(neighbor) )
                         OpenSet.Remove(neighbor);
-                    if (ClosedSet.Contains(neighbor) && tempCost < neighbor.CostFromStart)
+                    if (tempCost < neighbor.CostFromStart && ClosedSet.Contains(neighbor))
                         ClosedSet.Remove(neighbor);
                     if (!OpenSet.Contains(neighbor) && !ClosedSet.Contains(neighbor))
                     {
