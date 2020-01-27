@@ -18,9 +18,9 @@ gridAstar.FindPath();
 List<Point> pathPoints = gridAstar.Path;
 ```
 
-## Screenshot from the Test Visualizer
+## Visualization
 
-![Screenshot](Media/screenshot.png)
+![Screenshots](media/screenshots.gif)
 
 Gray = walls
 

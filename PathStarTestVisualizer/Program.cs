@@ -9,6 +9,7 @@ namespace YonatanMankovich.PathStarTest
     {
         static void Main(string[] args)
         {
+            Console.ReadLine();
             Console.Title = "Grid A* Path Tester";
             Size gridSize = new Size(45, 25);
             Point startPoint = new Point(0, 0);
