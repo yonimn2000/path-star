@@ -30,6 +30,6 @@ Green = open set
 
 Yellow = path
 
-## Example from Another Project of Mine
+## My Other Project that Uses This Library
 
 [Command Line Snake](https://github.com/yonimn2000/command-line-snake)
