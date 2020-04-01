@@ -29,3 +29,7 @@ Blue = closed set
 Green = open set
 
 Yellow = path
+
+## Example from Another Project of Mine
+
+[Command Line Snake](https://github.com/yonimn2000/command-line-snake)
