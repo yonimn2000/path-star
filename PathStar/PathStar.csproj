@@ -6,8 +6,22 @@
     <RootNamespace>YonatanMankovich.PathStar</RootNamespace>
     <Copyright>© 2019 Yonatan Mankovich</Copyright>
     <Authors>Yonatan Mankovich</Authors>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
+    <PackageId>YonatanMankovich.PathStar</PackageId>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>YonatanMankovich.PathStar</Title>
+    <Description>A simple library that uses the A* path finding algorithm to find paths on 2D grids.</Description>
+    <RepositoryUrl>https://github.com/yonimn2000/path-star</RepositoryUrl>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

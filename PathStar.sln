@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29509.3
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PathStar", "PathStar\PathStar.csproj", "{CB35687D-2B78-4706-A173-6F07505B5C3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathStarTestVisualizer", "PathStarTestVisualizer\PathStarTestVisualizer.csproj", "{B1127CD8-61DA-4603-9542-B2DCA74BACA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PathStarUnitTest", "PathStarUnitTest\PathStarUnitTest.csproj", "{F9230FAB-56B1-415F-B6F0-E8416DFE0580}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathStarUnitTest", "PathStarUnitTest\PathStarUnitTest.csproj", "{1350A074-9E5B-4E3E-A836-6EDC211CE978}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathStarTestVisualizer", "PathStarTestVisualizer\PathStarTestVisualizer.csproj", "{AD5FB730-51AB-4867-9D2E-2D328AD020E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{CB35687D-2B78-4706-A173-6F07505B5C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB35687D-2B78-4706-A173-6F07505B5C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB35687D-2B78-4706-A173-6F07505B5C3B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B1127CD8-61DA-4603-9542-B2DCA74BACA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B1127CD8-61DA-4603-9542-B2DCA74BACA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B1127CD8-61DA-4603-9542-B2DCA74BACA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B1127CD8-61DA-4603-9542-B2DCA74BACA4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1350A074-9E5B-4E3E-A836-6EDC211CE978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1350A074-9E5B-4E3E-A836-6EDC211CE978}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1350A074-9E5B-4E3E-A836-6EDC211CE978}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1350A074-9E5B-4E3E-A836-6EDC211CE978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9230FAB-56B1-415F-B6F0-E8416DFE0580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9230FAB-56B1-415F-B6F0-E8416DFE0580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9230FAB-56B1-415F-B6F0-E8416DFE0580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9230FAB-56B1-415F-B6F0-E8416DFE0580}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD5FB730-51AB-4867-9D2E-2D328AD020E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD5FB730-51AB-4867-9D2E-2D328AD020E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD5FB730-51AB-4867-9D2E-2D328AD020E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD5FB730-51AB-4867-9D2E-2D328AD020E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

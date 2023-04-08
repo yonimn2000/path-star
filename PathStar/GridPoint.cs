@@ -23,10 +23,7 @@ namespace YonatanMankovich.PathStar
 
         public GridPoint(Point point) : this(point.X, point.Y) { }
 
-        public int GetF()
-        {
-            return CostFromStart + WEIGHT * Heuristic;
-        }
+        public int GetF() => CostFromStart + WEIGHT * Heuristic;
 
         public void AddNeighbors(GridPoint[,] grid)
         {
@@ -40,9 +37,6 @@ namespace YonatanMankovich.PathStar
                 Neighbors.Add(grid[Y + 1, X]);
         }
 
-        public Point GetAsPoint()
-        {
-            return new Point(X, Y);
-        }
+        public Point GetAsPoint() => new Point(X, Y);
     }
 }

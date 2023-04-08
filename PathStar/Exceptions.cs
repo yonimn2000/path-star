@@ -13,7 +13,8 @@ namespace YonatanMankovich.PathStar
         public PointOutsideOfGridException() : base("The point was outside of the grid.") { }
 
         public PointOutsideOfGridException(Point point, Size gridSize, string pointIdentifier = "") :
-            base($"The point {point} {(pointIdentifier.Length == 0 ? "" : $"('{pointIdentifier}')")} was outside of the grid of size {gridSize}.")
+            base($"The point {point} {(pointIdentifier.Length == 0 ? "" : $"('{pointIdentifier}')")} " +
+                $"was outside of the grid of size {gridSize}.")
         { }
     }
 }

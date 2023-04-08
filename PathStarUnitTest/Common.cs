@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-
-namespace YonatanMankovich.PathStarUnitTest
+﻿namespace YonatanMankovich.PathStarUnitTest
 {
     public static class Common
     {
@@ -14,8 +10,10 @@ namespace YonatanMankovich.PathStarUnitTest
         {
             Random random = new Random(seed);
             List<Point> wallPoints = new List<Point>();
+
             for (int i = 0; i < GridSize.Width * GridSize.Height * 0.3; i++)
                 wallPoints.Add(new Point(random.Next(GridSize.Width), random.Next(GridSize.Height)));
+
             return wallPoints;
         }
     }

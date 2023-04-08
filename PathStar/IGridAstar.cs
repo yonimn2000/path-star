@@ -16,5 +16,6 @@ namespace YonatanMankovich.PathStar
         void MakeStep();
         List<GridPoint> GetOpenSet();
         List<GridPoint> GetClosedSet();
+        List<GridPoint> GetWallPoints();
     }
 }
